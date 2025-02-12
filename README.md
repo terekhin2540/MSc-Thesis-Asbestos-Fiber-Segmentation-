@@ -1,10 +1,48 @@
-# Asbestos-Fiber-Segmentation
+# Asbestos Fiber Segmentation
 
-Abstract
+## Abstract
 
-Asbestos is a group of naturally occurring fibrous minerals with a crystalline structure. When in- haled, asbestos fibers can settle deep in the lungs, where the immune system is unable to break them down, leading to lung damage and scarring, known as asbestosis. Additionally, exposure to asbestos significantly increases the risk of developing lung cancer and mesothelioma. For these reasons, it is crucial to control asbestos in building materials and other areas. However, manually identifying asbestos fibers in low-magnification electron microscopy images is chal- lenging, even for experts. Computer vision algorithms can assist in this process by automatically detecting the presence of asbestos and its precise coordinates in images.
+Asbestos refers to a group of naturally occurring fibrous minerals with a crystalline structure. When inhaled, asbestos fibers can settle deep in the lungs where the immune system cannot break them down, leading to lung damage and scarring (asbestosis). Moreover, exposure to asbestos significantly increases the risk of developing lung cancer and mesothelioma. Therefore, controlling asbestos in building materials and other areas is crucial.
 
-This thesis presents a computer vision-based algorithm using convolutional neural networks (CNNs) with a U-net architecture to segment asbestos fibers in low-magnification electron mi- croscopy images. A significant challenge addressed in this work was the limited amount of anno- tated data, which was mitigated through extensive data augmentation techniques, such as im- age cropping, random rotations and others. These techniques were carefully balanced to avoid over-augmenting the data, which could result in unrealistic images, and under-augmenting, which could lead to overfitting. Achieving this balance was crucial for optimal segmentation performance
-Multiple experiments were conducted to optimize the model, including the exploration of different loss functions, learning rate schedulers, and the number of filters in the convolutional layers. Notably, the use of a weighted combination of Binary Cross-Entropy (BCE) with Dice loss significantly improved performance across segmentation quality metrics, achieving an ROC AUC of 0.9864, Average precision(PR curve) of 0.5076, and Jaccard score of 0.36. The OneCycle learning rate scheduler also demonstrated superior results compared to other tested schedulers.
+Manually identifying asbestos fibers in low-magnification electron microscopy images is challenging—even for experts. Computer vision algorithms can help by automatically detecting the presence of asbestos and pinpointing its exact location within an image.
 
-The findings from this research indicate that selecting the appropriate loss function and learning rate scheduler is critical in optimizing segmentation performance, especially when working with limited data. Future research could explore multiclass asbestos segmentation to not only detect the presence of asbestos but also classify fibers based on their threat levels, further assisting in automated image analysis workflows.
+## Overview
+
+This project presents a computer vision-based algorithm that leverages convolutional neural networks (CNNs) with a U-Net architecture to segment asbestos fibers in low-magnification electron microscopy images. Key aspects include:
+
+- **Data Augmentation:**  
+  Due to the limited amount of annotated data, extensive data augmentation techniques were employed. These include:
+  - Image cropping
+  - Random rotations
+  - Other transformations
+
+  The augmentation was carefully balanced to avoid:
+  - **Over-augmentation:** Which can result in unrealistic images.
+  - **Under-augmentation:** Which can lead to overfitting.
+
+- **Model Optimization:**  
+  Multiple experiments were conducted to optimize the model. The experiments explored:
+  - Different loss functions
+  - Learning rate schedulers
+  - Various numbers of filters in the convolutional layers
+
+  Notably:
+  - A **weighted combination of Binary Cross-Entropy (BCE) and Dice loss** significantly improved performance.
+  - The **OneCycle learning rate scheduler** outperformed other schedulers.
+
+## Performance Metrics
+
+The optimized model achieved impressive segmentation quality metrics, including:
+- **ROC AUC:** 0.9864
+- **Average Precision (PR curve):** 0.5076
+- **Jaccard Score:** 0.36
+
+## Future Work
+
+Future research directions include:
+- Exploring multiclass asbestos segmentation to not only detect asbestos but also classify fibers based on their threat levels.
+- Enhancing automated image analysis workflows further.
+
+---
+
+Feel free to explore the repository for more details on the model architecture, experiments, and data augmentation strategies.
